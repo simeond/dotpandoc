@@ -1,12 +1,12 @@
 from: markdown
 to: latex
 standalone: true
-filters: 
+filters:
   - assimilateMetadata # handle academic matadata
-template: eisvogel.latex
+template: eisvogel.latex #does this need different directory? <<<<<
 toc: true
 shift-heading-level-by: 0
-metadata: 
+metadata:
   titlepage: true
   titlepage-color: BB4433
   titlepage-text-color: FFFFFF
@@ -40,7 +40,7 @@ metadata:
   header-left:
   header-center:
   footer-right:
-  footer-left: 
+  footer-left:
   footer-center:
   footnotes_pretty: true
   footnotes-disable-backlinks: false
