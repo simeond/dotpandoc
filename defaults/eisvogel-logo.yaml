@@ -1,12 +1,12 @@
 from: markdown
 to: latex
 standalone: true
-filters: 
+filters:
   - assimilateMetadata # handle academic matadata
 template: eisvogel.latex
 toc: true
 metadata:
-  titlepage-background: /Users/ian/Dropbox/Images/Logos/backgroundlogo.pdf
+  titlepage-background: /Users/simeonduckworth/.local/share/pandoc/templates/background4.pdf
   titlepage-text-color: 555555
   titlepage-rule-color: 555555
   titlepage: true
@@ -37,7 +37,7 @@ metadata:
   header-left:
   header-center:
   footer-right:
-  footer-left: 
+  footer-left:
   footer-center:
   footnotes_pretty: true
   footnotes-disable-backlinks: false

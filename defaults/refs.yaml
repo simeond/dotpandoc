@@ -2,13 +2,13 @@ standalone: true
 verbosity: INFO # verbose by default
 cite-method: citeproc
 bibliography: /Users/simeonduckworth/Documents/open_docs/_koko/phd/bib/koko_zotero_bib.json #JSON faster than BIB, symlinked into Pandoc data dir
-csl: /Users/simeonduckworth/.local/share/pandoc/dotpandoc/csl/apa.csl
+csl: /Users/simeonduckworth/.local/share/pandoc/csl/apa.csl
 filters:
   - pandoc-citeproc # process citations
   - pagebreak.lua # use \newpage{} also for HTML and docx
 reference-links: true
 metadata:
-  citation-abbreviations: /Users/simeonduckworth/.local/share/pandoc/dotpandoc/cite-abbr.json # my journal abbreviations
+  citation-abbreviations: /Users/simeonduckworth/.local/share/pandoc/cite-abbr.json # my journal abbreviations
   reference-section-title: References
   notes-after-punctuation: false
   link-citations: true
