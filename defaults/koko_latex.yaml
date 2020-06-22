@@ -1,0 +1,14 @@
+from: markdown
+to: latex
+standalone: true
+# template: custom.latex
+shift-heading-level-by: 0
+metadata:
+#  documentclass: 'article'
+#  classoption: twoside
+#  pagestyle: plain # control \pagestyle{}: the default article class supports plain (default), empty (no running heads or page numbers), and headings (section titles in running heads)
+#  fontsize: '12pt'
+#  linestretch: '1.5'
+#  geometry: ['inner=2.2cm','outer=1.8cm','bottom=2.5cm','twoside']
+#  lang: 'en-GB'
+#  nonumberfigures: true # I use Scrivener autonumbering, so disable for LaTeX

@@ -14,12 +14,12 @@ templates:
 #-----------------------------------------------------------------------------
   crossref:
     setup: []
-    preprocessors: 
+    preprocessors:
       - preprocessors/fixCrossref #allows to put crossref labels in styled captions
     pandoc:
       standalone: true
       verbose: true # verbose by default
-      filter: 
+      filter:
         - pandoc-crossref # process crossrefs
     metadata:
       linkReferences: true
@@ -30,7 +30,7 @@ templates:
     pandoc:
       standalone: true
       verbose: true # verbose by default
-      filter: 
+      filter:
         - pandoc-citeproc # process citations
       lua-filter:
         - filters/pagebreak.lua # use \newpage{} also for HTML and docx
@@ -42,7 +42,7 @@ templates:
       cite-method: citeproc
       reference-section-title: References
       notes-after-punctuation: false
-      link-citations: true 
+      link-citations: true
       csl-hanging-indent: true
 #-----------------------------------------------------------------------------
   plain:
@@ -82,28 +82,10 @@ templates:
         #- filters/removeHR #remove horizontal rules
         - filters/prependAll # prepends institute:, comments: and keywords: metadata into the text
         - filters/simplifyMetadata #collapse down metadata "author: [name: affiliation:]" to author:
-      reference-doc: templates/custom.docx
+      reference-doc: Users/simeonduckworth/Dropbox/templates/koko_template_docx.docx
 #-----------------------------------------------------------------------------
   docx-refs:
     extends: [docx,refs]
-#-----------------------------------------------------------------------------
-  docx-refs-nsfc:
-    extends: [docx,refs]
-    pandoc:
-      reference-doc: templates/custom.docx
-#-----------------------------------------------------------------------------
-  docx-refs-crossref:
-    extends: [docx,refs,crossref]
-#-----------------------------------------------------------------------------
-  docx-refs-not-linked:
-    extends: [docx,refs]
-    metadata: 
-      link-citations: false
-#-----------------------------------------------------------------------------
-  docx-endnote:
-    extends: [docx,refs]
-    preprocessors: 
-      add: [preprocessors/convertEndnoteRefs] #turns endnote citations to pandoc citations
 #-----------------------------------------------------------------------------
   docx-changes:
     extends: [docx,refs]
@@ -117,7 +99,7 @@ templates:
 #-----------------------------------------------------------------------------
 #:::::::::::::::::::::::::::::: PRESENTATIONS ::::::::::::::::::::::::::::::::
 #-----------------------------------------------------------------------------
-# Note for reveal.js standalone download the files  and put them 
+# Note for reveal.js standalone download the files  and put them
 # in a reveal.js/ folder relative to the markdown file.
 #   wget https://github.com/hakimel/reveal.js/archive/master.tar.gz
 #   tar -xzvf master.tar.gz
@@ -156,7 +138,7 @@ templates:
       from: markdown
       to: latex
       standalone: true
-      filter: 
+      filter:
         - filters/assimilateMetadata # handle academic metadata
       template: templates/custom.latex
     metadata:
@@ -180,7 +162,7 @@ templates:
       urlcolor: BrickRed
       lang: 'en-GB'
       nonumberfigures: true # I use Scrivener autonumbering, so disable for LaTeX
-    postprocessors: 
+    postprocessors:
       - postprocessors/fixLaTeX
 #-----------------------------------------------------------------------------
   latex-refs:
@@ -197,7 +179,7 @@ templates:
 #-----------------------------------------------------------------------------
   latex-endnote:
     extends: [latex-refs]
-    preprocessors: 
+    preprocessors:
       - preprocessors/convertEndnoteRefs
 #-----------------------------------------------------------------------------
   latex-chemfig: # example of using header-includes with yaml block scalar data http://yaml-multiline.info/
@@ -267,7 +249,7 @@ templates:
       template: templates/letter.latex
     metadata:
       papersize: a4
-      return-address: 
+      return-address:
         - Cognition \& Behaviour Platform
         - Institute of Neuroscience, CAS
         - Room 307, Systems Building
@@ -298,7 +280,7 @@ templates:
       urlcolor: BrickRed
       lang: 'en-GB'
       geometry: ['margin=1.5cm','top=2.1cm']
-    postprocessors: 
+    postprocessors:
       - postprocessors/fixLaTeX
 #-----------------------------------------------------------------------------
   pdf-refs:
@@ -325,18 +307,18 @@ templates:
 # https://github.com/Wandmalfarbe/pandoc-latex-template
   eisvogel:
     extends: 'refs'
-    preprocessors: 
+    preprocessors:
       #- preprocessors/removeImageDimensions # remove image dimensions
     pandoc:
       from: markdown
       to: latex
       standalone: true
-      filter: 
+      filter:
         - filters/assimilateMetadata # handle academic matadata
       template: templates/eisvogel.latex
       toc: true
       shift-heading-level-by: 1
-    metadata: 
+    metadata:
       titlepage: true
       titlepage-color: BB4433
       titlepage-text-color: FFFFFF
@@ -370,11 +352,11 @@ templates:
       header-left:
       header-center:
       footer-right:
-      footer-left: 
+      footer-left:
       footer-center:
       footnotes_pretty: true
       footnotes-disable-backlinks: false
-    postprocessors: 
+    postprocessors:
       - postprocessors/fixLaTeX
 #-----------------------------------------------------------------------------
 # https://github.com/Wandmalfarbe/pandoc-latex-template
@@ -412,14 +394,14 @@ templates:
 # https://github.com/Wandmalfarbe/pandoc-latex-template
   eisvogel-endnote:
     extends: [eisvogel]
-    preprocessors: 
+    preprocessors:
       - preprocessors/convertEndnoteRefs
 #-----------------------------------------------------------------------------
   latex-ieee:
     extends: [latex-refs]
     pandoc:
       template: templates/ieee.latex
-    metadata: 
+    metadata:
       fontsize: '10pt'
 #-----------------------------------------------------------------------------
 # https://github.com/pandoc-scholar/pandoc-scholar
@@ -427,7 +409,7 @@ templates:
     extends: [latex-refs]
     pandoc:
       template: templates/pandoc-scholar.latex
-    metadata: 
+    metadata:
       fontsize: '10pt'
 #-----------------------------------------------------------------------------
   memoir-with-refs:
@@ -450,7 +432,7 @@ templates:
       number-sections: false
       section-divs: true
       mathjax: true
-      filter: 
+      filter:
         - filters/assimilateMetadata #regularise metadata
       template: 'templates/custom.html'
       css: 'templates/custom.css'
@@ -459,7 +441,7 @@ templates:
       shift-heading-level-by: 1
     metadata:
       lang: 'en-GB'
-    postprocessors: 
+    postprocessors:
       - postprocessors/fixHTML
 #-----------------------------------------------------------------------------
   html-selfcontained:
@@ -469,7 +451,7 @@ templates:
 #-----------------------------------------------------------------------------
   html-changes:
     extends: ['html']
-    preprocessors: 
+    preprocessors:
       - preprocessors/criticmarkup
 #-----------------------------------------------------------------------------
   html-refs:
@@ -480,12 +462,12 @@ templates:
 #-----------------------------------------------------------------------------
   html-endnote:
     extends: [refs, html]
-    preprocessors: 
+    preprocessors:
       - preprocessors/convertEndnoteRefs
 #-----------------------------------------------------------------------------
   html-scholar:
     extends: [refs, crossref, html]
-    pandoc: 
+    pandoc:
       template: 'templates/pandoc-scholar.html'
       css: 'templates/pandoc-scholar.css'
 #-----------------------------------------------------------------------------
@@ -509,7 +491,7 @@ templates:
 #-----------------------------------------------------------------------------
   html-endnote-pdf:
     extends: [html-refs-pdf]
-    preprocessors: 
+    preprocessors:
       - preprocessors/convertEndnoteRefs
 #-----------------------------------------------------------------------------
 # https://github.com/jez/tufte-pandoc-css
@@ -520,11 +502,11 @@ templates:
       section-divs: true
       standalone: true
       mathjax: true
-      filter: 
+      filter:
         - filters/assimilateMetadata # regularise metadata
         - pandoc-sidenote # brew install jez/formulae/pandoc-sidenote
       template: 'templates/tufte.html5'
-      css: 
+      css:
         - 'templates/tufte.css'
         - 'templates/tuftepandoc.css'
     metadata:
@@ -569,7 +551,7 @@ templates:
       to: markdown
       output: out.md
       standalone: true
-      filter: 
+      filter:
         - filters/testFilter
     metadata:
       #author: Joanna Doe
